@@ -1,0 +1,25 @@
+@use "../abstract/" as *;
+@use "../base/" as *;
+
+.header {
+  padding: 3rem 0;
+  &__wrapper {
+    @include between;
+  }
+  &__logo {
+    a > h4 {
+      color: $clr--dark;
+      font-size: clamp(1.25rem, 5vw, 1.5rem);
+    }
+  }
+  &__nav {
+    ul {
+      display: flex;
+      gap: 3rem;
+      align-items: center;
+      li a {
+        font-weight: 600;
+      }
+    }
+  }
+}
