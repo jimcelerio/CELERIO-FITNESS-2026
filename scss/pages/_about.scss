@@ -1,0 +1,101 @@
+@use "../abstract/" as *;
+
+.aboutBanner {
+  padding: 4rem 0 6rem;
+  &__top {
+    @include between;
+    margin-bottom: 1rem;
+    h1 {
+      line-height: 5rem;
+      margin-top: 2rem;
+      max-width: 48rem;
+    }
+    &--right {
+      max-width: 40rem;
+    }
+  }
+  &__bottom {
+    &--a {
+      grid-area: a;
+      @include imgFit(500px, 500px);
+    }
+    &--b {
+      grid-area: b;
+      h3 {
+        margin-bottom: 2rem;
+      }
+      p {
+        max-width: 40rem;
+      }
+    }
+    &--c {
+      grid-area: c;
+      @include imgFit(100%, 700px);
+      margin-top: 5rem;
+    }
+    display: grid;
+    grid-template-areas:
+      "a c"
+      "b c";
+    gap: 5rem;
+  }
+}
+
+.aboutValues {
+  padding: 6rem 0;
+  color: $clr--light;
+  .title {
+    max-width: 56rem;
+    margin: 0 auto 3rem;
+    h3 {
+      color: $clr--light;
+      margin-bottom: 0.75rem;
+    }
+    p {
+      margin: 0 auto;
+      max-width: 40rem;
+      text-align: center;
+      font-size: 1.15rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.88);
+    }
+  }
+  &__cards {
+    @include gridFixed(2, 2rem);
+    max-width: 70rem;
+    margin: 0 auto;
+    .cardIcon {
+      background-color: $clr--light;
+      color: $clr--dark;
+      flex-direction: row;
+      text-align: left;
+      gap: 5rem;
+      img {
+        width: 30rem;
+      }
+      &__details {
+        p {
+          font-size: 1.15rem;
+          line-height: 1.6;
+        }
+      }
+    }
+  }
+}
+
+.aboutLocation {
+  padding: 4rem 0 6rem;
+  @include centerAll;
+
+  &__wrapper {
+    .title {
+      h2 {
+        margin: 0 auto;
+        max-width: 40rem;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+  &__map {
+  }
+}
