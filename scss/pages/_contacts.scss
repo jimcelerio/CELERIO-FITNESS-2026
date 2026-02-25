@@ -10,6 +10,10 @@
   }
   &__wrapper {
     @include gridCustom(1.5fr 1fr, 5rem);
+    @include mediaQuery(520px) {
+      grid-template-columns: unset;
+      justify-content: center;
+    }
   }
   &__left {
     form {
@@ -56,6 +60,9 @@
       right: 1rem;
       bottom: 1rem;
       z-index: -9;
+      @include mediaQuery(520px) {
+        width: 0;
+      }
     }
   }
 }
@@ -66,11 +73,17 @@
     display: flex;
     flex-direction: row;
     gap: 5rem;
+    @include mediaQuery(520px) {
+      flex-direction: column;
+    }
   }
   &__left {
     max-width: 30rem;
     h2 {
       margin-bottom: 2rem;
+    }
+    @include mediaQuery(520px) {
+      text-align: center;
     }
   }
   &__item {
@@ -86,8 +99,19 @@
     &--answer {
       max-height: 0;
       overflow: hidden;
-      opacity: 0;
       transition: 0.5s ease;
+      margin-top: 1rem;
+      .contactFaq__item.active {
+        max-height: 1000px;
+      }
+    }
+    &.active {
+      i {
+        transform: rotate(180deg);
+      }
+      .contactFaq__item--answer {
+        max-height: 1000px;
+      }
     }
   }
 }

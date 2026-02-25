@@ -5,10 +5,18 @@
   &__top {
     @include between;
     margin-bottom: 1rem;
+    @include mediaQuery(520px) {
+      flex-direction: column;
+      gap: 2rem;
+      text-align: center;
+    }
     h1 {
       line-height: 5rem;
       margin-top: 2rem;
       max-width: 48rem;
+      @include mediaQuery(520px) {
+        margin-top: 2rem;
+      }
     }
     &--right {
       max-width: 40rem;
@@ -38,6 +46,13 @@
       "a c"
       "b c";
     gap: 5rem;
+    @include mediaQuery(520px) {
+      gap: 2rem;
+      text-align: center;
+      p {
+        text-align: justify;
+      }
+    }
   }
 }
 
@@ -55,23 +70,38 @@
       margin: 0 auto;
       max-width: 40rem;
       text-align: center;
-      font-size: 1.15rem;
-      line-height: 1.6;
-      color: rgba(255, 255, 255, 0.88);
+      font-size: 1rem;
+      color: $clr--light;
     }
   }
   &__cards {
     @include gridFixed(2, 2rem);
     max-width: 70rem;
     margin: 0 auto;
+    @include mediaQuery(520px) {
+      grid-template-columns: 1fr;
+      justify-content: center;
+    }
     .cardIcon {
       background-color: $clr--light;
       color: $clr--dark;
+      align-items: center;
       flex-direction: row;
       text-align: left;
       gap: 5rem;
+      @include mediaQuery(520px) {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+      }
       img {
-        width: 30rem;
+        width: 7rem;
+        flex-shrink: 0;
+        display: block;
+        margin: 0 auto;
+        @include mediaQuery(520px) {
+          width: 7rem;
+        }
       }
       &__details {
         p {
@@ -84,7 +114,7 @@
 }
 
 .aboutLocation {
-  padding: 4rem 0 6rem;
+  padding: 4rem 0;
   @include centerAll;
 
   &__wrapper {
@@ -97,5 +127,13 @@
     }
   }
   &__map {
+    margin-top: 2rem;
+    iframe {
+      width: 100%;
+      height: 32rem;
+      @include mediaQuery(520px) {
+        height: 20rem;
+      }
+    }
   }
 }
